@@ -5,11 +5,13 @@ import java.rmi.RMISecurityManager
 import java.rmi.registry.LocateRegistry
 import java.rmi.registry.Registry
 import java.rmi.server.ExportException
+import java.util.*
 
 
 fun main() {
     val config = Configuration()
-    System.setProperty("java.security.policy","file:/home/wjar/studia/npr/rmi/resources/security.policy");
+    val securityPolicy = "file:" + System.getProperty("user.dir") + "/resources/security.policy"
+    System.setProperty("java.security.policy", securityPolicy)
 
     when {
 //        System.getSecurityManager() == null -> System.setSecurityManager(SecurityManager())

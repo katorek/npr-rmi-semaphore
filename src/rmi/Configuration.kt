@@ -10,6 +10,7 @@ class Configuration private constructor(
     val minSleepTime = 1000L
     val maxSleepTime = 4000L
     val random = Random
+    val permits = arrayListOf(4)
 
     fun workTime(): Long {
         return random.nextLong(minSleepTime*4, maxSleepTime*4)

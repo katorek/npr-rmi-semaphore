@@ -11,7 +11,7 @@ fun main() {
         val registry = LocateRegistry.getRegistry(configuration.ip, configuration.port)
         val rSemaphoreFactory = registry.lookup(configuration.registerName) as IRSemaphoreFactory
 
-        val permitsList = arrayListOf(4)
+        val permitsList = configuration.permits
         permitsList.forEachIndexed { index, element -> rSemaphoreFactory.createSemapore(index.toLong(), element) }
 
         val r = ThreadLocalRandom.current()
